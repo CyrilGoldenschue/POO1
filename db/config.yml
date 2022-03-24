@@ -1,0 +1,6 @@
+development:
+  adapter:  mysql2
+  host:     127.0.0.1
+  username: ConnectDB
+  password: Adm1n123
+  database: poo1_2021_shop
