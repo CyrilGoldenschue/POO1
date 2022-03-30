@@ -18,14 +18,18 @@ client = Client.find_by lastname: "Goldenschue"
 #    puts category
 #end
 
+#EX9
+#order1 = Order.new(status: 'PROGRESS')
+#order1.orderItems << [
+#  OrderItem.new(quantity: 2, product: product),
+#]
+#client.orders << order1
+#order1.save!
+#client.save!
 
-order1 = Order.new(status: 'PROGRESS')
-order1.orderItems << [
-  OrderItem.new(quantity: 2, product: product),
-]
-client.orders << order1
-order1.save!
-client.save!
+#Ex2_suite
+#1
+puts Order.all().most_expensive
 
 
 #client.comments.each do |comment|

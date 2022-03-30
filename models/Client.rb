@@ -5,5 +5,4 @@ class Client < ActiveRecord::Base
     has_many :orderItems, through: :orders
     has_many :comments, :foreign_key => :author_id
 
-
 end

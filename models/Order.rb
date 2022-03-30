@@ -7,6 +7,13 @@ class Order < ActiveRecord::Base
     validates :orderItems, :client, presence: true
     validates_associated :orderItems
 
+    #scope :expensive, -> { reorder(id: :desc).limit(1)}
+
+    def self.most_expensive
+        all.max_by(&:price)
+    end
+
+
     def to_s
         puts "le prix total est de : #{price}"
     end
@@ -14,4 +21,6 @@ class Order < ActiveRecord::Base
     def price
         orderItems.sum {|orderItem| orderItem.price}       
     end
+
+
 end
