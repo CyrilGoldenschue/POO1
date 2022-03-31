@@ -3,6 +3,7 @@ require_relative 'models'
 
 pcr = Category.create!(name: 'PCR', description: "woula")
 sup = Category.create!(name: 'SUP', description: "woula")
+Category.create!(name: 'TET', description: "woula")
 
 supplier1 = Supplier.create!(name: "LaFerme")
 supplier2 = Supplier.create!(name: "PromoViande")
