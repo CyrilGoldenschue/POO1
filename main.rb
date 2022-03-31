@@ -31,7 +31,9 @@ client = Client.find_by lastname: "Goldenschue"
 #1
 #puts Order.all().test("2022-03-25", "2022-03-31")
 
-puts Category.all().never_ordered
+puts Client.all().without_orders
+Client.all().without_orders.destroy_all
+puts "Doit être vide: #{Client.all().without_orders.all.join}"
 
 #client.comments.each do |comment|
 #    puts comment.product.name

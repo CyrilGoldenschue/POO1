@@ -14,6 +14,7 @@ product3 = Product.create!(name: 'limousine', quantity: 6, price: 25.95, descrip
 product4 = Product.create!(name: 'truck', quantity: 8, price: 200, description: 'A truck', category: sup, supplier: supplier2)
 
 individual = Individual.create!(firstname: 'Cyril', lastname: 'Goldenschue')
+Individual.create!(firstname: 'Patrick', lastname: 'test')
 company = Company.create!(name: 'CPNV')
 
 order1 = Order.new(status: 'PROGRESS')

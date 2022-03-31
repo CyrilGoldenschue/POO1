@@ -5,4 +5,8 @@ class Client < ActiveRecord::Base
     has_many :orderItems, through: :orders
     has_many :comments, :foreign_key => :author_id
 
+    def self.without_orders
+        where.missing(:orders)
+    end
+
 end

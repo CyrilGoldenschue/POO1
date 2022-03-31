@@ -2917,3 +2917,248 @@ D, [2022-03-31T09:15:06.160544 #1403] DEBUG -- :   Product Load (0.5ms)  SELECT 
 D, [2022-03-31T09:15:06.166992 #1403] DEBUG -- :   Client Load (0.4ms)  SELECT `clients`.* FROM `clients` WHERE `clients`.`lastname` = 'Goldenschue' LIMIT 1
 D, [2022-03-31T09:15:06.186035 #1403] DEBUG -- :   Category Pluck (0.7ms)  SELECT `categories`.`id` FROM `categories` INNER JOIN `products` ON `products`.`category_id` = `categories`.`id` INNER JOIN `order_items` ON `order_items`.`product_id` = `products`.`id` INNER JOIN `orders` ON `orders`.`id` = `order_items`.`order_id`
 D, [2022-03-31T09:15:06.186770 #1403] DEBUG -- :   Category Load (0.3ms)  SELECT `categories`.* FROM `categories` WHERE `categories`.`id` NOT IN (1, 1, 1, 2, 2, 2, 2)
+D, [2022-03-31T09:20:53.428005 #1635] DEBUG -- :   Supplier Load (0.5ms)  SELECT `suppliers`.* FROM `suppliers` WHERE `suppliers`.`id` = 2 LIMIT 1
+D, [2022-03-31T09:20:53.434651 #1635] DEBUG -- :   Product Load (0.4ms)  SELECT `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1
+D, [2022-03-31T09:20:53.439603 #1635] DEBUG -- :   Client Load (0.4ms)  SELECT `clients`.* FROM `clients` WHERE `clients`.`lastname` = 'Goldenschue' LIMIT 1
+D, [2022-03-31T09:20:53.452054 #1635] DEBUG -- :   Client Load (0.6ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:21:56.958777 #1882] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:21:56.959427 #1882] DEBUG -- :   Category Create (0.5ms)  INSERT INTO `categories` (`name`, `description`) VALUES ('PCR', 'woula')
+D, [2022-03-31T09:21:56.986979 #1882] DEBUG -- :   TRANSACTION (26.3ms)  COMMIT
+D, [2022-03-31T09:21:56.993038 #1882] DEBUG -- :   TRANSACTION (0.4ms)  BEGIN
+D, [2022-03-31T09:21:56.993578 #1882] DEBUG -- :   Category Create (0.4ms)  INSERT INTO `categories` (`name`, `description`) VALUES ('SUP', 'woula')
+D, [2022-03-31T09:21:57.017217 #1882] DEBUG -- :   TRANSACTION (23.4ms)  COMMIT
+D, [2022-03-31T09:21:57.018011 #1882] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:21:57.018379 #1882] DEBUG -- :   Category Create (0.3ms)  INSERT INTO `categories` (`name`, `description`) VALUES ('TET', 'woula')
+D, [2022-03-31T09:21:57.048607 #1882] DEBUG -- :   TRANSACTION (29.9ms)  COMMIT
+D, [2022-03-31T09:21:57.053537 #1882] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:21:57.054132 #1882] DEBUG -- :   Supplier Create (0.5ms)  INSERT INTO `suppliers` (`name`) VALUES ('LaFerme')
+D, [2022-03-31T09:21:57.071012 #1882] DEBUG -- :   TRANSACTION (16.7ms)  COMMIT
+D, [2022-03-31T09:21:57.071794 #1882] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:21:57.072215 #1882] DEBUG -- :   Supplier Create (0.3ms)  INSERT INTO `suppliers` (`name`) VALUES ('PromoViande')
+D, [2022-03-31T09:21:57.083213 #1882] DEBUG -- :   TRANSACTION (10.8ms)  COMMIT
+D, [2022-03-31T09:21:57.092995 #1882] DEBUG -- :   TRANSACTION (0.4ms)  BEGIN
+D, [2022-03-31T09:21:57.093643 #1882] DEBUG -- :   Product Create (0.5ms)  INSERT INTO `products` (`name`, `price`, `description`, `category_id`, `quantity`, `supplier_id`) VALUES ('apple', 0.15, 'Little apple', 1, 50, 1)
+D, [2022-03-31T09:21:57.101018 #1882] DEBUG -- :   TRANSACTION (7.2ms)  COMMIT
+D, [2022-03-31T09:21:57.102090 #1882] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:21:57.102636 #1882] DEBUG -- :   Product Create (0.5ms)  INSERT INTO `products` (`name`, `price`, `description`, `category_id`, `quantity`, `supplier_id`) VALUES ('lemon', 0.2, 'Big lemon', 1, 100, 2)
+D, [2022-03-31T09:21:57.109846 #1882] DEBUG -- :   TRANSACTION (7.0ms)  COMMIT
+D, [2022-03-31T09:21:57.110718 #1882] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:21:57.111191 #1882] DEBUG -- :   Product Create (0.4ms)  INSERT INTO `products` (`name`, `price`, `description`, `category_id`, `quantity`, `supplier_id`) VALUES ('limousine', 25.95, 'A limousine', 2, 6, 1)
+D, [2022-03-31T09:21:57.118508 #1882] DEBUG -- :   TRANSACTION (7.1ms)  COMMIT
+D, [2022-03-31T09:21:57.119505 #1882] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:21:57.119981 #1882] DEBUG -- :   Product Create (0.4ms)  INSERT INTO `products` (`name`, `price`, `description`, `category_id`, `quantity`, `supplier_id`) VALUES ('truck', 200.0, 'A truck', 2, 8, 2)
+D, [2022-03-31T09:21:57.127371 #1882] DEBUG -- :   TRANSACTION (7.1ms)  COMMIT
+D, [2022-03-31T09:21:57.133606 #1882] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:21:57.134201 #1882] DEBUG -- :   Individual Create (0.5ms)  INSERT INTO `clients` (`firstname`, `lastname`, `type`) VALUES ('Cyril', 'Goldenschue', 'Individual')
+D, [2022-03-31T09:21:57.141772 #1882] DEBUG -- :   TRANSACTION (7.4ms)  COMMIT
+D, [2022-03-31T09:21:57.142853 #1882] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:21:57.143293 #1882] DEBUG -- :   Individual Create (0.3ms)  INSERT INTO `clients` (`firstname`, `lastname`, `type`) VALUES ('Patrick', 'test', 'Individual')
+D, [2022-03-31T09:21:57.153385 #1882] DEBUG -- :   TRANSACTION (9.8ms)  COMMIT
+D, [2022-03-31T09:21:57.155417 #1882] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:21:57.155855 #1882] DEBUG -- :   Company Create (0.4ms)  INSERT INTO `clients` (`name`, `type`) VALUES ('CPNV', 'Company')
+D, [2022-03-31T09:21:57.162823 #1882] DEBUG -- :   TRANSACTION (6.8ms)  COMMIT
+D, [2022-03-31T09:21:57.190032 #1882] DEBUG -- :   TRANSACTION (1.2ms)  BEGIN
+D, [2022-03-31T09:21:57.190971 #1882] DEBUG -- :   Order Create (0.8ms)  INSERT INTO `orders` (`created_at`, `status`, `client_id`) VALUES ('2022-03-31', 'PROGRESS', 1)
+D, [2022-03-31T09:21:57.192951 #1882] DEBUG -- :   OrderItem Create (0.8ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (2, 0.15, 1, 1)
+D, [2022-03-31T09:21:57.198737 #1882] DEBUG -- :   Product Update (0.7ms)  UPDATE `products` SET `products`.`quantity` = 48 WHERE `products`.`id` = 1
+D, [2022-03-31T09:21:57.200108 #1882] DEBUG -- :   OrderItem Create (0.4ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (1, 25.95, 3, 1)
+D, [2022-03-31T09:21:57.201539 #1882] DEBUG -- :   Product Update (0.5ms)  UPDATE `products` SET `products`.`quantity` = 5 WHERE `products`.`id` = 3
+D, [2022-03-31T09:21:57.202474 #1882] DEBUG -- :   OrderItem Create (0.3ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (1, 200.0, 4, 1)
+D, [2022-03-31T09:21:57.203467 #1882] DEBUG -- :   Product Update (0.3ms)  UPDATE `products` SET `products`.`quantity` = 7 WHERE `products`.`id` = 4
+D, [2022-03-31T09:21:57.216135 #1882] DEBUG -- :   TRANSACTION (12.2ms)  COMMIT
+D, [2022-03-31T09:21:57.219370 #1882] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:21:57.219861 #1882] DEBUG -- :   Order Create (0.4ms)  INSERT INTO `orders` (`created_at`, `status`, `client_id`) VALUES ('2022-03-31', 'PROGRESS', 3)
+D, [2022-03-31T09:21:57.220686 #1882] DEBUG -- :   OrderItem Create (0.4ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (5, 0.15, 1, 2)
+D, [2022-03-31T09:21:57.221628 #1882] DEBUG -- :   Product Update (0.4ms)  UPDATE `products` SET `products`.`quantity` = 43 WHERE `products`.`id` = 1
+D, [2022-03-31T09:21:57.222405 #1882] DEBUG -- :   OrderItem Create (0.3ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (75, 0.2, 2, 2)
+D, [2022-03-31T09:21:57.223376 #1882] DEBUG -- :   Product Update (0.3ms)  UPDATE `products` SET `products`.`quantity` = 25 WHERE `products`.`id` = 2
+D, [2022-03-31T09:21:57.224287 #1882] DEBUG -- :   OrderItem Create (0.3ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (3, 25.95, 3, 2)
+D, [2022-03-31T09:21:57.225049 #1882] DEBUG -- :   Product Update (0.3ms)  UPDATE `products` SET `products`.`quantity` = 2 WHERE `products`.`id` = 3
+D, [2022-03-31T09:21:57.225779 #1882] DEBUG -- :   OrderItem Create (0.3ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (2, 200.0, 4, 2)
+D, [2022-03-31T09:21:57.226470 #1882] DEBUG -- :   Product Update (0.3ms)  UPDATE `products` SET `products`.`quantity` = 5 WHERE `products`.`id` = 4
+D, [2022-03-31T09:21:57.233681 #1882] DEBUG -- :   TRANSACTION (7.0ms)  COMMIT
+D, [2022-03-31T09:21:57.242130 #1882] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:21:57.242829 #1882] DEBUG -- :   Comment Create (0.5ms)  INSERT INTO `comments` (`body`, `target_id`, `target_type`) VALUES ('c\'est un très bon fournisseur', 1, 'Supplier')
+D, [2022-03-31T09:21:57.256342 #1882] DEBUG -- :   TRANSACTION (13.3ms)  COMMIT
+D, [2022-03-31T09:21:57.257762 #1882] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:21:57.258313 #1882] DEBUG -- :   Comment Update (0.5ms)  UPDATE `comments` SET `comments`.`author_id` = 1 WHERE `comments`.`id` = 1
+D, [2022-03-31T09:21:57.265744 #1882] DEBUG -- :   TRANSACTION (7.3ms)  COMMIT
+D, [2022-03-31T09:21:57.267041 #1882] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:21:57.267429 #1882] DEBUG -- :   Comment Create (0.3ms)  INSERT INTO `comments` (`body`, `target_id`, `target_type`) VALUES ('très bon produit', 1, 'Product')
+D, [2022-03-31T09:21:57.277476 #1882] DEBUG -- :   TRANSACTION (9.4ms)  COMMIT
+D, [2022-03-31T09:21:57.278403 #1882] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:21:57.278893 #1882] DEBUG -- :   Comment Update (0.4ms)  UPDATE `comments` SET `comments`.`author_id` = 3 WHERE `comments`.`id` = 2
+D, [2022-03-31T09:21:57.286036 #1882] DEBUG -- :   TRANSACTION (6.9ms)  COMMIT
+D, [2022-03-31T09:22:03.526304 #1937] DEBUG -- :   Supplier Load (0.6ms)  SELECT `suppliers`.* FROM `suppliers` WHERE `suppliers`.`id` = 2 LIMIT 1
+D, [2022-03-31T09:22:03.534616 #1937] DEBUG -- :   Product Load (0.5ms)  SELECT `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1
+D, [2022-03-31T09:22:03.541358 #1937] DEBUG -- :   Client Load (0.5ms)  SELECT `clients`.* FROM `clients` WHERE `clients`.`lastname` = 'Goldenschue' LIMIT 1
+D, [2022-03-31T09:22:03.555027 #1937] DEBUG -- :   Client Load (0.6ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:22:56.448170 #2003] DEBUG -- :   Supplier Load (0.4ms)  SELECT `suppliers`.* FROM `suppliers` WHERE `suppliers`.`id` = 2 LIMIT 1
+D, [2022-03-31T09:22:56.455591 #2003] DEBUG -- :   Product Load (0.3ms)  SELECT `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1
+D, [2022-03-31T09:22:56.460052 #2003] DEBUG -- :   Client Load (0.4ms)  SELECT `clients`.* FROM `clients` WHERE `clients`.`lastname` = 'Goldenschue' LIMIT 1
+D, [2022-03-31T09:22:56.474232 #2003] DEBUG -- :   Client Load (0.6ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:22:56.475121 #2003] DEBUG -- :   Client Load (0.3ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:22:56.475692 #2003] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:22:56.476528 #2003] DEBUG -- :   Individual Destroy (0.8ms)  DELETE FROM `clients` WHERE `clients`.`id` = 2
+D, [2022-03-31T09:22:56.486193 #2003] DEBUG -- :   TRANSACTION (9.5ms)  COMMIT
+D, [2022-03-31T09:22:56.487180 #2003] DEBUG -- :   Client Load (0.4ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:23:02.529716 #2049] DEBUG -- :   Supplier Load (0.4ms)  SELECT `suppliers`.* FROM `suppliers` WHERE `suppliers`.`id` = 2 LIMIT 1
+D, [2022-03-31T09:23:02.536226 #2049] DEBUG -- :   Product Load (0.4ms)  SELECT `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1
+D, [2022-03-31T09:23:02.540618 #2049] DEBUG -- :   Client Load (0.4ms)  SELECT `clients`.* FROM `clients` WHERE `clients`.`lastname` = 'Goldenschue' LIMIT 1
+D, [2022-03-31T09:23:02.553051 #2049] DEBUG -- :   Client Load (0.6ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:23:02.553783 #2049] DEBUG -- :   Client Load (0.3ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:23:02.554347 #2049] DEBUG -- :   Client Load (0.3ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:23:27.551307 #2113] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:23:27.551873 #2113] DEBUG -- :   Category Create (0.4ms)  INSERT INTO `categories` (`name`, `description`) VALUES ('PCR', 'woula')
+D, [2022-03-31T09:23:27.563129 #2113] DEBUG -- :   TRANSACTION (10.1ms)  COMMIT
+D, [2022-03-31T09:23:27.569000 #2113] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:23:27.569452 #2113] DEBUG -- :   Category Create (0.3ms)  INSERT INTO `categories` (`name`, `description`) VALUES ('SUP', 'woula')
+D, [2022-03-31T09:23:27.579834 #2113] DEBUG -- :   TRANSACTION (10.1ms)  COMMIT
+D, [2022-03-31T09:23:27.580661 #2113] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:23:27.581049 #2113] DEBUG -- :   Category Create (0.3ms)  INSERT INTO `categories` (`name`, `description`) VALUES ('TET', 'woula')
+D, [2022-03-31T09:23:27.591939 #2113] DEBUG -- :   TRANSACTION (10.7ms)  COMMIT
+D, [2022-03-31T09:23:27.596490 #2113] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:23:27.597116 #2113] DEBUG -- :   Supplier Create (0.5ms)  INSERT INTO `suppliers` (`name`) VALUES ('LaFerme')
+D, [2022-03-31T09:23:27.605039 #2113] DEBUG -- :   TRANSACTION (7.7ms)  COMMIT
+D, [2022-03-31T09:23:27.606220 #2113] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:23:27.606673 #2113] DEBUG -- :   Supplier Create (0.3ms)  INSERT INTO `suppliers` (`name`) VALUES ('PromoViande')
+D, [2022-03-31T09:23:27.616554 #2113] DEBUG -- :   TRANSACTION (9.5ms)  COMMIT
+D, [2022-03-31T09:23:27.629989 #2113] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:23:27.630600 #2113] DEBUG -- :   Product Create (0.5ms)  INSERT INTO `products` (`name`, `price`, `description`, `category_id`, `quantity`, `supplier_id`) VALUES ('apple', 0.15, 'Little apple', 4, 50, 3)
+D, [2022-03-31T09:23:27.640708 #2113] DEBUG -- :   TRANSACTION (9.8ms)  COMMIT
+D, [2022-03-31T09:23:27.641776 #2113] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:23:27.642345 #2113] DEBUG -- :   Product Create (0.5ms)  INSERT INTO `products` (`name`, `price`, `description`, `category_id`, `quantity`, `supplier_id`) VALUES ('lemon', 0.2, 'Big lemon', 4, 100, 4)
+D, [2022-03-31T09:23:27.669513 #2113] DEBUG -- :   TRANSACTION (26.9ms)  COMMIT
+D, [2022-03-31T09:23:27.670923 #2113] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:23:27.671453 #2113] DEBUG -- :   Product Create (0.4ms)  INSERT INTO `products` (`name`, `price`, `description`, `category_id`, `quantity`, `supplier_id`) VALUES ('limousine', 25.95, 'A limousine', 5, 6, 3)
+D, [2022-03-31T09:23:27.694263 #2113] DEBUG -- :   TRANSACTION (22.6ms)  COMMIT
+D, [2022-03-31T09:23:27.695364 #2113] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:23:27.695794 #2113] DEBUG -- :   Product Create (0.3ms)  INSERT INTO `products` (`name`, `price`, `description`, `category_id`, `quantity`, `supplier_id`) VALUES ('truck', 200.0, 'A truck', 5, 8, 4)
+D, [2022-03-31T09:23:27.716497 #2113] DEBUG -- :   TRANSACTION (20.5ms)  COMMIT
+D, [2022-03-31T09:23:27.723226 #2113] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:23:27.723811 #2113] DEBUG -- :   Individual Create (0.5ms)  INSERT INTO `clients` (`firstname`, `lastname`, `type`) VALUES ('Cyril', 'Goldenschue', 'Individual')
+D, [2022-03-31T09:23:27.743477 #2113] DEBUG -- :   TRANSACTION (19.5ms)  COMMIT
+D, [2022-03-31T09:23:27.744571 #2113] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:23:27.744998 #2113] DEBUG -- :   Individual Create (0.3ms)  INSERT INTO `clients` (`firstname`, `lastname`, `type`) VALUES ('Patrick', 'test', 'Individual')
+D, [2022-03-31T09:23:27.758841 #2113] DEBUG -- :   TRANSACTION (13.6ms)  COMMIT
+D, [2022-03-31T09:23:27.761809 #2113] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:23:27.762248 #2113] DEBUG -- :   Company Create (0.3ms)  INSERT INTO `clients` (`name`, `type`) VALUES ('CPNV', 'Company')
+D, [2022-03-31T09:23:27.780492 #2113] DEBUG -- :   TRANSACTION (18.0ms)  COMMIT
+D, [2022-03-31T09:23:27.811495 #2113] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:23:27.812147 #2113] DEBUG -- :   Order Create (0.6ms)  INSERT INTO `orders` (`created_at`, `status`, `client_id`) VALUES ('2022-03-31', 'PROGRESS', 4)
+D, [2022-03-31T09:23:27.817126 #2113] DEBUG -- :   OrderItem Create (0.7ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (2, 0.15, 5, 3)
+D, [2022-03-31T09:23:27.819934 #2113] DEBUG -- :   Product Update (0.5ms)  UPDATE `products` SET `products`.`quantity` = 48 WHERE `products`.`id` = 5
+D, [2022-03-31T09:23:27.821009 #2113] DEBUG -- :   OrderItem Create (0.3ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (1, 25.95, 7, 3)
+D, [2022-03-31T09:23:27.822060 #2113] DEBUG -- :   Product Update (0.3ms)  UPDATE `products` SET `products`.`quantity` = 5 WHERE `products`.`id` = 7
+D, [2022-03-31T09:23:27.822834 #2113] DEBUG -- :   OrderItem Create (0.3ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (1, 200.0, 8, 3)
+D, [2022-03-31T09:23:27.823608 #2113] DEBUG -- :   Product Update (0.3ms)  UPDATE `products` SET `products`.`quantity` = 7 WHERE `products`.`id` = 8
+D, [2022-03-31T09:23:27.831118 #2113] DEBUG -- :   TRANSACTION (7.0ms)  COMMIT
+D, [2022-03-31T09:23:27.833961 #2113] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:23:27.834481 #2113] DEBUG -- :   Order Create (0.4ms)  INSERT INTO `orders` (`created_at`, `status`, `client_id`) VALUES ('2022-03-31', 'PROGRESS', 6)
+D, [2022-03-31T09:23:27.835268 #2113] DEBUG -- :   OrderItem Create (0.3ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (5, 0.15, 5, 4)
+D, [2022-03-31T09:23:27.836100 #2113] DEBUG -- :   Product Update (0.3ms)  UPDATE `products` SET `products`.`quantity` = 43 WHERE `products`.`id` = 5
+D, [2022-03-31T09:23:27.836994 #2113] DEBUG -- :   OrderItem Create (0.3ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (75, 0.2, 6, 4)
+D, [2022-03-31T09:23:27.837830 #2113] DEBUG -- :   Product Update (0.3ms)  UPDATE `products` SET `products`.`quantity` = 25 WHERE `products`.`id` = 6
+D, [2022-03-31T09:23:27.838582 #2113] DEBUG -- :   OrderItem Create (0.3ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (3, 25.95, 7, 4)
+D, [2022-03-31T09:23:27.839295 #2113] DEBUG -- :   Product Update (0.3ms)  UPDATE `products` SET `products`.`quantity` = 2 WHERE `products`.`id` = 7
+D, [2022-03-31T09:23:27.839975 #2113] DEBUG -- :   OrderItem Create (0.2ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (2, 200.0, 8, 4)
+D, [2022-03-31T09:23:27.840636 #2113] DEBUG -- :   Product Update (0.3ms)  UPDATE `products` SET `products`.`quantity` = 5 WHERE `products`.`id` = 8
+D, [2022-03-31T09:23:27.848142 #2113] DEBUG -- :   TRANSACTION (7.3ms)  COMMIT
+D, [2022-03-31T09:23:27.855834 #2113] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:23:27.856407 #2113] DEBUG -- :   Comment Create (0.4ms)  INSERT INTO `comments` (`body`, `target_id`, `target_type`) VALUES ('c\'est un très bon fournisseur', 3, 'Supplier')
+D, [2022-03-31T09:23:27.866818 #2113] DEBUG -- :   TRANSACTION (10.2ms)  COMMIT
+D, [2022-03-31T09:23:27.868037 #2113] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:23:27.868620 #2113] DEBUG -- :   Comment Update (0.5ms)  UPDATE `comments` SET `comments`.`author_id` = 4 WHERE `comments`.`id` = 3
+D, [2022-03-31T09:23:27.878923 #2113] DEBUG -- :   TRANSACTION (10.1ms)  COMMIT
+D, [2022-03-31T09:23:27.880243 #2113] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:23:27.880735 #2113] DEBUG -- :   Comment Create (0.4ms)  INSERT INTO `comments` (`body`, `target_id`, `target_type`) VALUES ('très bon produit', 5, 'Product')
+D, [2022-03-31T09:23:27.888470 #2113] DEBUG -- :   TRANSACTION (7.6ms)  COMMIT
+D, [2022-03-31T09:23:27.889486 #2113] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:23:27.890007 #2113] DEBUG -- :   Comment Update (0.5ms)  UPDATE `comments` SET `comments`.`author_id` = 6 WHERE `comments`.`id` = 4
+D, [2022-03-31T09:23:27.899479 #2113] DEBUG -- :   TRANSACTION (9.3ms)  COMMIT
+D, [2022-03-31T09:23:31.652443 #2159] DEBUG -- :   Supplier Load (0.5ms)  SELECT `suppliers`.* FROM `suppliers` WHERE `suppliers`.`id` = 2 LIMIT 1
+D, [2022-03-31T09:23:31.659734 #2159] DEBUG -- :   Product Load (0.4ms)  SELECT `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1
+D, [2022-03-31T09:23:31.664228 #2159] DEBUG -- :   Client Load (0.5ms)  SELECT `clients`.* FROM `clients` WHERE `clients`.`lastname` = 'Goldenschue' LIMIT 1
+D, [2022-03-31T09:23:31.677487 #2159] DEBUG -- :   Client Load (0.7ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:23:31.678457 #2159] DEBUG -- :   Client Load (0.4ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:23:31.679080 #2159] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:23:31.679489 #2159] DEBUG -- :   Individual Destroy (0.4ms)  DELETE FROM `clients` WHERE `clients`.`id` = 5
+D, [2022-03-31T09:23:31.691032 #2159] DEBUG -- :   TRANSACTION (11.3ms)  COMMIT
+D, [2022-03-31T09:23:31.692359 #2159] DEBUG -- :   Client Load (0.5ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:24:09.890229 #2230] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:09.890916 #2230] DEBUG -- :   Category Create (0.5ms)  INSERT INTO `categories` (`name`, `description`) VALUES ('PCR', 'woula')
+D, [2022-03-31T09:24:09.901252 #2230] DEBUG -- :   TRANSACTION (9.0ms)  COMMIT
+D, [2022-03-31T09:24:09.905703 #2230] DEBUG -- :   TRANSACTION (0.4ms)  BEGIN
+D, [2022-03-31T09:24:09.906189 #2230] DEBUG -- :   Category Create (0.4ms)  INSERT INTO `categories` (`name`, `description`) VALUES ('SUP', 'woula')
+D, [2022-03-31T09:24:09.913249 #2230] DEBUG -- :   TRANSACTION (6.9ms)  COMMIT
+D, [2022-03-31T09:24:09.914084 #2230] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:09.914524 #2230] DEBUG -- :   Category Create (0.4ms)  INSERT INTO `categories` (`name`, `description`) VALUES ('TET', 'woula')
+D, [2022-03-31T09:24:09.921653 #2230] DEBUG -- :   TRANSACTION (7.0ms)  COMMIT
+D, [2022-03-31T09:24:09.925449 #2230] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:09.925992 #2230] DEBUG -- :   Supplier Create (0.5ms)  INSERT INTO `suppliers` (`name`) VALUES ('LaFerme')
+D, [2022-03-31T09:24:09.933153 #2230] DEBUG -- :   TRANSACTION (7.0ms)  COMMIT
+D, [2022-03-31T09:24:09.934013 #2230] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:24:09.934659 #2230] DEBUG -- :   Supplier Create (0.4ms)  INSERT INTO `suppliers` (`name`) VALUES ('PromoViande')
+D, [2022-03-31T09:24:09.945006 #2230] DEBUG -- :   TRANSACTION (10.1ms)  COMMIT
+D, [2022-03-31T09:24:09.954407 #2230] DEBUG -- :   TRANSACTION (0.4ms)  BEGIN
+D, [2022-03-31T09:24:09.955112 #2230] DEBUG -- :   Product Create (0.6ms)  INSERT INTO `products` (`name`, `price`, `description`, `category_id`, `quantity`, `supplier_id`) VALUES ('apple', 0.15, 'Little apple', 7, 50, 5)
+D, [2022-03-31T09:24:09.962589 #2230] DEBUG -- :   TRANSACTION (7.3ms)  COMMIT
+D, [2022-03-31T09:24:09.963647 #2230] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:09.964143 #2230] DEBUG -- :   Product Create (0.4ms)  INSERT INTO `products` (`name`, `price`, `description`, `category_id`, `quantity`, `supplier_id`) VALUES ('lemon', 0.2, 'Big lemon', 7, 100, 6)
+D, [2022-03-31T09:24:09.978762 #2230] DEBUG -- :   TRANSACTION (14.5ms)  COMMIT
+D, [2022-03-31T09:24:09.979858 #2230] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:24:09.980323 #2230] DEBUG -- :   Product Create (0.4ms)  INSERT INTO `products` (`name`, `price`, `description`, `category_id`, `quantity`, `supplier_id`) VALUES ('limousine', 25.95, 'A limousine', 8, 6, 5)
+D, [2022-03-31T09:24:09.996950 #2230] DEBUG -- :   TRANSACTION (16.4ms)  COMMIT
+D, [2022-03-31T09:24:09.997998 #2230] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:24:10.022718 #2230] DEBUG -- :   Product Create (24.6ms)  INSERT INTO `products` (`name`, `price`, `description`, `category_id`, `quantity`, `supplier_id`) VALUES ('truck', 200.0, 'A truck', 8, 8, 6)
+D, [2022-03-31T09:24:10.030357 #2230] DEBUG -- :   TRANSACTION (7.4ms)  COMMIT
+D, [2022-03-31T09:24:10.036062 #2230] DEBUG -- :   TRANSACTION (0.2ms)  BEGIN
+D, [2022-03-31T09:24:10.036670 #2230] DEBUG -- :   Individual Create (0.5ms)  INSERT INTO `clients` (`firstname`, `lastname`, `type`) VALUES ('Cyril', 'Goldenschue', 'Individual')
+D, [2022-03-31T09:24:10.046265 #2230] DEBUG -- :   TRANSACTION (9.3ms)  COMMIT
+D, [2022-03-31T09:24:10.047170 #2230] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:10.047563 #2230] DEBUG -- :   Individual Create (0.3ms)  INSERT INTO `clients` (`firstname`, `lastname`, `type`) VALUES ('Patrick', 'test', 'Individual')
+D, [2022-03-31T09:24:10.055055 #2230] DEBUG -- :   TRANSACTION (7.2ms)  COMMIT
+D, [2022-03-31T09:24:10.057739 #2230] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:10.058142 #2230] DEBUG -- :   Company Create (0.3ms)  INSERT INTO `clients` (`name`, `type`) VALUES ('CPNV', 'Company')
+D, [2022-03-31T09:24:10.065344 #2230] DEBUG -- :   TRANSACTION (7.0ms)  COMMIT
+D, [2022-03-31T09:24:10.088919 #2230] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:10.089495 #2230] DEBUG -- :   Order Create (0.5ms)  INSERT INTO `orders` (`created_at`, `status`, `client_id`) VALUES ('2022-03-31', 'PROGRESS', 7)
+D, [2022-03-31T09:24:10.092666 #2230] DEBUG -- :   OrderItem Create (0.5ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (2, 0.15, 9, 5)
+D, [2022-03-31T09:24:10.095325 #2230] DEBUG -- :   Product Update (0.5ms)  UPDATE `products` SET `products`.`quantity` = 48 WHERE `products`.`id` = 9
+D, [2022-03-31T09:24:10.096306 #2230] DEBUG -- :   OrderItem Create (0.4ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (1, 25.95, 11, 5)
+D, [2022-03-31T09:24:10.097257 #2230] DEBUG -- :   Product Update (0.4ms)  UPDATE `products` SET `products`.`quantity` = 5 WHERE `products`.`id` = 11
+D, [2022-03-31T09:24:10.098020 #2230] DEBUG -- :   OrderItem Create (0.3ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (1, 200.0, 12, 5)
+D, [2022-03-31T09:24:10.099145 #2230] DEBUG -- :   Product Update (0.5ms)  UPDATE `products` SET `products`.`quantity` = 7 WHERE `products`.`id` = 12
+D, [2022-03-31T09:24:10.108260 #2230] DEBUG -- :   TRANSACTION (8.8ms)  COMMIT
+D, [2022-03-31T09:24:10.111556 #2230] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:10.112214 #2230] DEBUG -- :   Order Create (0.5ms)  INSERT INTO `orders` (`created_at`, `status`, `client_id`) VALUES ('2022-03-31', 'PROGRESS', 9)
+D, [2022-03-31T09:24:10.113567 #2230] DEBUG -- :   OrderItem Create (0.5ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (5, 0.15, 9, 6)
+D, [2022-03-31T09:24:10.114640 #2230] DEBUG -- :   Product Update (0.5ms)  UPDATE `products` SET `products`.`quantity` = 43 WHERE `products`.`id` = 9
+D, [2022-03-31T09:24:10.115635 #2230] DEBUG -- :   OrderItem Create (0.4ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (75, 0.2, 10, 6)
+D, [2022-03-31T09:24:10.116739 #2230] DEBUG -- :   Product Update (0.4ms)  UPDATE `products` SET `products`.`quantity` = 25 WHERE `products`.`id` = 10
+D, [2022-03-31T09:24:10.117731 #2230] DEBUG -- :   OrderItem Create (0.5ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (3, 25.95, 11, 6)
+D, [2022-03-31T09:24:10.118795 #2230] DEBUG -- :   Product Update (0.4ms)  UPDATE `products` SET `products`.`quantity` = 2 WHERE `products`.`id` = 11
+D, [2022-03-31T09:24:10.119821 #2230] DEBUG -- :   OrderItem Create (0.4ms)  INSERT INTO `order_items` (`quantity`, `item_price`, `product_id`, `order_id`) VALUES (2, 200.0, 12, 6)
+D, [2022-03-31T09:24:10.121020 #2230] DEBUG -- :   Product Update (0.4ms)  UPDATE `products` SET `products`.`quantity` = 5 WHERE `products`.`id` = 12
+D, [2022-03-31T09:24:10.129040 #2230] DEBUG -- :   TRANSACTION (7.8ms)  COMMIT
+D, [2022-03-31T09:24:10.137215 #2230] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:10.137875 #2230] DEBUG -- :   Comment Create (0.5ms)  INSERT INTO `comments` (`body`, `target_id`, `target_type`) VALUES ('c\'est un très bon fournisseur', 5, 'Supplier')
+D, [2022-03-31T09:24:10.144868 #2230] DEBUG -- :   TRANSACTION (6.8ms)  COMMIT
+D, [2022-03-31T09:24:10.145990 #2230] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:10.146487 #2230] DEBUG -- :   Comment Update (0.4ms)  UPDATE `comments` SET `comments`.`author_id` = 7 WHERE `comments`.`id` = 5
+D, [2022-03-31T09:24:10.153545 #2230] DEBUG -- :   TRANSACTION (6.9ms)  COMMIT
+D, [2022-03-31T09:24:10.155033 #2230] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:10.155470 #2230] DEBUG -- :   Comment Create (0.4ms)  INSERT INTO `comments` (`body`, `target_id`, `target_type`) VALUES ('très bon produit', 9, 'Product')
+D, [2022-03-31T09:24:10.162854 #2230] DEBUG -- :   TRANSACTION (7.2ms)  COMMIT
+D, [2022-03-31T09:24:10.163682 #2230] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:10.164339 #2230] DEBUG -- :   Comment Update (0.5ms)  UPDATE `comments` SET `comments`.`author_id` = 9 WHERE `comments`.`id` = 6
+D, [2022-03-31T09:24:10.173949 #2230] DEBUG -- :   TRANSACTION (9.4ms)  COMMIT
+D, [2022-03-31T09:24:13.783986 #2275] DEBUG -- :   Supplier Load (0.5ms)  SELECT `suppliers`.* FROM `suppliers` WHERE `suppliers`.`id` = 2 LIMIT 1
+D, [2022-03-31T09:24:13.790833 #2275] DEBUG -- :   Product Load (0.5ms)  SELECT `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1
+D, [2022-03-31T09:24:13.795341 #2275] DEBUG -- :   Client Load (0.5ms)  SELECT `clients`.* FROM `clients` WHERE `clients`.`lastname` = 'Goldenschue' LIMIT 1
+D, [2022-03-31T09:24:13.808079 #2275] DEBUG -- :   Client Load (0.6ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:24:13.809105 #2275] DEBUG -- :   Client Load (0.4ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:24:13.809798 #2275] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
+D, [2022-03-31T09:24:13.810253 #2275] DEBUG -- :   Individual Destroy (0.4ms)  DELETE FROM `clients` WHERE `clients`.`id` = 8
+D, [2022-03-31T09:24:13.820499 #2275] DEBUG -- :   TRANSACTION (9.9ms)  COMMIT
+D, [2022-03-31T09:24:13.821746 #2275] DEBUG -- :   Client Load (0.5ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
