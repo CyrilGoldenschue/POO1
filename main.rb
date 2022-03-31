@@ -29,7 +29,7 @@ client = Client.find_by lastname: "Goldenschue"
 
 #Ex2_suite
 #1
-puts Order.all().most_expensive
+puts Order.all().test("2022-03-25", "2022-03-31")
 
 
 #client.comments.each do |comment|

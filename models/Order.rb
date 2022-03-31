@@ -22,5 +22,7 @@ class Order < ActiveRecord::Base
         orderItems.sum {|orderItem| orderItem.price}       
     end
 
-
+    def self.test (startDate, endDate)
+        all.where("created_at >= ?", startDate).where("created_at <= ?", endDate)
+    end
 end
