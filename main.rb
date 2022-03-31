@@ -29,11 +29,15 @@ client = Client.find_by lastname: "Goldenschue"
 
 #Ex2_suite
 #1
-#puts Order.all().test("2022-03-25", "2022-03-31")
 
-puts Client.all().without_orders
-Client.all().without_orders.destroy_all
-puts "Doit être vide: #{Client.all().without_orders.all.join}"
+starts_at = Time.now - 1.week
+ends_at = starts_at + 1.week
+puts "\nCommandes passée entre #{starts_at} et #{ends_at}"
+puts Order.between(starts_at, ends_at)
+
+#puts Client.all().without_orders
+#Client.all().without_orders.destroy_all
+#puts "Doit être vide: #{Client.all().without_orders.all.join}"
 
 #client.comments.each do |comment|
 #    puts comment.product.name

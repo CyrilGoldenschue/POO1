@@ -3162,3 +3162,17 @@ D, [2022-03-31T09:24:13.809798 #2275] DEBUG -- :   TRANSACTION (0.3ms)  BEGIN
 D, [2022-03-31T09:24:13.810253 #2275] DEBUG -- :   Individual Destroy (0.4ms)  DELETE FROM `clients` WHERE `clients`.`id` = 8
 D, [2022-03-31T09:24:13.820499 #2275] DEBUG -- :   TRANSACTION (9.9ms)  COMMIT
 D, [2022-03-31T09:24:13.821746 #2275] DEBUG -- :   Client Load (0.5ms)  SELECT `clients`.* FROM `clients` LEFT OUTER JOIN `orders` ON `orders`.`client_id` = `clients`.`id` WHERE `orders`.`id` IS NULL
+D, [2022-03-31T09:31:55.023645 #2516] DEBUG -- :   Supplier Load (0.6ms)  SELECT `suppliers`.* FROM `suppliers` WHERE `suppliers`.`id` = 2 LIMIT 1
+D, [2022-03-31T09:31:55.031573 #2516] DEBUG -- :   Product Load (0.8ms)  SELECT `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1
+D, [2022-03-31T09:31:55.036275 #2516] DEBUG -- :   Client Load (0.5ms)  SELECT `clients`.* FROM `clients` WHERE `clients`.`lastname` = 'Goldenschue' LIMIT 1
+D, [2022-03-31T09:31:55.042900 #2516] DEBUG -- :   Order Load (0.8ms)  SELECT `orders`.* FROM `orders` WHERE `orders`.`created_at` BETWEEN '2022-03-24' AND '2022-03-27'
+D, [2022-03-31T09:32:56.360497 #2597] DEBUG -- :   Supplier Load (0.5ms)  SELECT `suppliers`.* FROM `suppliers` WHERE `suppliers`.`id` = 2 LIMIT 1
+D, [2022-03-31T09:32:56.368570 #2597] DEBUG -- :   Product Load (0.3ms)  SELECT `products`.* FROM `products` WHERE `products`.`id` = 4 LIMIT 1
+D, [2022-03-31T09:32:56.372971 #2597] DEBUG -- :   Client Load (0.3ms)  SELECT `clients`.* FROM `clients` WHERE `clients`.`lastname` = 'Goldenschue' LIMIT 1
+D, [2022-03-31T09:32:56.379798 #2597] DEBUG -- :   Order Load (0.5ms)  SELECT `orders`.* FROM `orders` WHERE `orders`.`created_at` BETWEEN '2022-03-24' AND '2022-03-31'
+D, [2022-03-31T09:32:56.392447 #2597] DEBUG -- :   OrderItem Load (0.4ms)  SELECT `order_items`.* FROM `order_items` WHERE `order_items`.`order_id` = 1
+D, [2022-03-31T09:32:56.398651 #2597] DEBUG -- :   OrderItem Load (0.4ms)  SELECT `order_items`.* FROM `order_items` WHERE `order_items`.`order_id` = 2
+D, [2022-03-31T09:32:56.399772 #2597] DEBUG -- :   OrderItem Load (0.4ms)  SELECT `order_items`.* FROM `order_items` WHERE `order_items`.`order_id` = 3
+D, [2022-03-31T09:32:56.400749 #2597] DEBUG -- :   OrderItem Load (0.4ms)  SELECT `order_items`.* FROM `order_items` WHERE `order_items`.`order_id` = 4
+D, [2022-03-31T09:32:56.401651 #2597] DEBUG -- :   OrderItem Load (0.3ms)  SELECT `order_items`.* FROM `order_items` WHERE `order_items`.`order_id` = 5
+D, [2022-03-31T09:32:56.402537 #2597] DEBUG -- :   OrderItem Load (0.3ms)  SELECT `order_items`.* FROM `order_items` WHERE `order_items`.`order_id` = 6

@@ -8,6 +8,7 @@ class Order < ActiveRecord::Base
     validates_associated :orderItems
 
     #scope :expensive, -> { reorder(id: :desc).limit(1)}
+    scope :between, ->(starts_at, ends_at) {where(created_at: starts_at..ends_at)}
 
     def self.most_expensive
         all.max_by(&:price)
@@ -20,9 +21,5 @@ class Order < ActiveRecord::Base
 
     def price
         orderItems.sum {|orderItem| orderItem.price}       
-    end
-
-    def self.test (startDate, endDate)
-        all.where("created_at >= ?", startDate).where("created_at <= ?", endDate)
     end
 end
